@@ -9,23 +9,141 @@
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+            min-height: 100vh;
         }
+        
         h1 {
             color: #4c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
         }
+        
+        /* декоративная полоска под заголовком */
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4c3e50, #7c6b8e);
+            border-radius: 2px;
+        }
+        
         .container {
             border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* стилизованный тег CI/CD */
+        .ci-badge {
+            display: inline-block;
+            background: #e8e0f0;
+            color: #4c3e50;
+            font-size: 0.75em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-left: 15px;
+            vertical-align: middle;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+        
+        /* иконка перед текстом */
+        .info-icon {
+            display: inline-block;
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        
+        /* стилизованный блок времени */
+        .time-box {
+            background: #f0edf5;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+            width: auto;
+            border-left: 3px solid #4c3e50;
+        }
+        
+        .time-label {
+            font-weight: bold;
+            color: #4c3e50;
+            margin-right: 8px;
+        }
+        
+        #timestamp {
+            color: #2c3e66;
+            font-weight: 500;
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* небольшая разделительная линия */
+        hr {
+            margin: 20px 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ddd, transparent);
+        }
+        
+        /* статус-индикатор */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+            color: #2c7a4d;
+            background: #e6f4ea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 15px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2c7a4d;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s ease infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
         }
     </style>
 </head>
 <body>
-    <h1>Привет, CI/CD!</h1>
+    <h1>Привет, CI/CD! <span class="ci-badge">автоматическая сборка</span></h1>
+    
     <div class="container">
-        <p>Эта страница была автоматически развёрнута с помощью CI/CD для студентки группы ИС-24-1 Нораевой Дарьи.</p>
-        <p>Время последнего обновления: <span id="timestamp"></span></p>
+        <p><span class="info-icon"></span> Эта страница была автоматически развёрнута с помощью CI/CD для студентки группы <strong>ИС-24-1</strong> <strong>Нораевой Дарьи</strong>.</p>
+        
+        <hr>
+        
+        <div class="time-box">
+            <span class="time-label">🕐 Время последнего обновления:</span>
+            <span id="timestamp"></span>
+        </div>
+        
+        <div class="status">
+            <span class="status-dot"></span>
+            <span>CI/CD пайплайн активен</span>
+        </div>
     </div>
 
     <script>
