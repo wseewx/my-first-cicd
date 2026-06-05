@@ -98,37 +98,10 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, #ddd, transparent);
         }
-        
-        /* статус-индикатор */
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85em;
-            color: #2c7a4d;
-            background: #e6f4ea;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-top: 15px;
-        }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #2c7a4d;
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 1.5s ease infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
     </style>
 </head>
 <body>
-    <h1>Привет, CI/CD! <span class="ci-badge">⚡ автоматическая сборка</span></h1>
+    <h1>Привет, CI/CD! </h1>
     
     <div class="container">
         <p><span class="info-icon">📋</span> Эта страница была автоматически развёрнута с помощью CI/CD для студентки группы <strong>ИС-24-1</strong> <strong>Нораевой Дарьи</strong>.</p>
@@ -137,12 +110,7 @@
         
         <div class="time-box">
             <span class="time-label">🕐 Время последнего обновления:</span>
-            <span id="tmestamp"></span>
-        </div>
-        
-        <div class="status">
-            <span class="status-dot"></span>
-            <span>CI/CD пайплайн активен</span>
+            <span id="timestamp"></span>
         </div>
     </div>
 
